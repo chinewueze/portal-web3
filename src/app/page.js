@@ -12,6 +12,9 @@ export default function Home() {
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
   const handleInputChange = (event) => {
     const numericInput = event.target.value.replace(/[^0-9]/g, '');
     setInputValue(numericInput);
@@ -150,7 +153,7 @@ export default function Home() {
                     <Select
                       className='w-[275px] text-white lg:h-[48px] sm:h-[35px] border border-solid border-[#3474D9] rounded-lg @apply bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)] bg-[rgba(52,116,217,0.17)] backdrop-blur-sm'
                       value={selectedValue}
-                      onChange={handleChange}
+                      onChange={handleSelectChange}
                       displayEmpty
                       inputProps={{ 'aria-label': 'Without label', }}
                     >
