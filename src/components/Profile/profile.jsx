@@ -1,8 +1,8 @@
 import Image from "next/image"
-export const ConnectModal = () => {
+export const UserProfile = () => {
     return (
         <>
-            <div className=' flex flex-col items-center lg:gap-[35px] sm:gap-[15px] pt-[20px] border-4 border-solid border-[#69A0F0] bg-[#1A3468] absolute lg:right-[180px] sm:right-[4%] lg:min-w-[500px] sm:min-w-[350px] sm:h-[calc(100vh-23vh)] lg:h-[800px] z-50 rounded-[50px]'>
+            <div className='lg:mt-[4%] sm:mt-[65px] flex flex-col items-center lg:gap-[35px] sm:gap-[15px] pt-[20px] border-4 border-solid border-[#69A0F0] bg-[#1A3468] absolute lg:right-[180px] sm:right-[4%] lg:min-w-[500px] sm:min-w-[350px] sm:h-[calc(100vh-23vh)] lg:h-[800px] z-50 rounded-[50px]'>
                 <div className="bg-[#395794] sm:w-[270px] lg:w-[350px] h-[55px] gap-[18px] flex rounded-3xl">
                     <div className="my-[9px] ml-[10px] ">
                         <Image src="/assets/icons/icon-globe.svg" width={40} height={40} alt="globe" />

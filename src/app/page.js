@@ -4,12 +4,10 @@ import Image from 'next/image'
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
-import { ConnectModal } from '@/components/Modal/modal';
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState('');
   const [selected, setSelected] = useState('');
   const [inputValue, setInputValue] = useState('');
-  const [showModal, setShowModal] = useState(false)
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
@@ -20,30 +18,12 @@ export default function Home() {
     const numericInput = event.target.value.replace(/[^0-9]/g, '');
     setInputValue(numericInput);
   };
-  const handleClick = () => {
-    setShowModal(true)
-  }
-  useEffect(() => {
-    if (showModal) {
-      const closeTimeout = setTimeout(() => {
-        setShowModal(false)
-      }, 2000)
-      return () => clearTimeout(closeTimeout)
-    }
-  }, [showModal])
   return (
     <main>
-      {showModal &&
-        <div>
-          <ConnectModal />
-        </div>
-      }
       <div className="w-full  flex  items-center justify-center px-[15px] ">
         <div className='  flex flex-col'>
           <div className='place-self-end sm:mr-0 lg:mr-[55px]'>
-            <button
-              onClick={handleClick}
-              className='h-[40px] lg:w-[186px] bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)]  backdrop-blur-md px-[31px] py-[5px] sm:w-[149px] border border-solid border-[#3474D9] rounded-3xl lg:mt-[10px] sm:[mt-45px] mb-[15px]'
+            <button className='h-[40px] lg:w-[186px] bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)]  backdrop-blur-md px-[31px] py-[5px] sm:w-[149px] border border-solid border-[#3474D9] rounded-3xl lg:mt-[10px] sm:[mt-45px] mb-[15px]'
             >
               Connect
             </button>
@@ -130,9 +110,7 @@ export default function Home() {
               <div className='bg-[#FFFFFF] w-[330px] h-[1px]'> </div>
             </div>
             <div className='place-self-end sm:mr-0 lg:mr-[55px]'>
-              <button
-                onClick={handleClick}
-                className='h-[38px] lg:w-[186px] bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)]  backdrop-blur-md px-[31px] py-[5px] sm:w-[149px] border border-solid border-[#3474D9] rounded-3xl lg:mt-[5px] sm:[mt-45px] mb-[10px]'
+              <button className='h-[38px] lg:w-[186px] bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)]  backdrop-blur-md px-[31px] py-[5px] sm:w-[149px] border border-solid border-[#3474D9] rounded-3xl lg:mt-[5px] sm:[mt-45px] mb-[10px]'
               >
                 Connect
               </button>

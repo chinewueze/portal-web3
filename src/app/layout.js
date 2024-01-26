@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/header/header'
+import Image from 'next/image'
 // import { Sidebar } from '@/components/Sidebar/sidebar'
 // import { ConnectModal } from '@/components/Modal/modal'
 
@@ -15,9 +16,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} lg:bg-[url(/assets/images/bg-dsk.png)] sm:bg-[url(/assets/images/bg-mob.png)] bg-cover bg-center text-white w-screen`}>
+        
         {/* <Sidebar /> */}
         <Header />
         {children}
+       
       </body>
     </html>
   )

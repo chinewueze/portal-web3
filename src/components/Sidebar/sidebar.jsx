@@ -1,8 +1,14 @@
 import Image from "next/image"
-export const Sidebar = () => {
+import ClearSharpIcon from '@mui/icons-material/ClearSharp';
+export const Sidebar = ({hideMenu}) => {
     return (
         <>
             <div className="overflow-auto lg:pt-[40px] pr-[3px] sm:pt-[20px] flex flex-col lg:gap-[20px] sm:gap-[15px]  items-center absolute right-0 border z-50 backdrop-blur-md rounded-l-[30px] bg-gradient-to-tr from-[rgba(11, 12, 15, 0.2)] via-[rgba(78, 149, 254, 0.11)] to-transparent via-[rgba(52, 116, 217, 0.17)] lg:w-[30vw] sm:w-[85vw] h-screen">
+            <div className="place-self-end mr-[17px]">
+                <button onClick={hideMenu}>
+                    <ClearSharpIcon/>
+                </button>
+            </div>
                 <div className="flex flex-col gap-[30px] items-center justify-center lg:w-[500px] sm:w-[315px] lg:min-h-[250px] sm:min-h-[155px] border-[0.2px] border-solid border-[#FFFDFD] bg-[url(/assets/images/side-image.png)] rounded-2xl">
                     <div className="w-full font-semibold flex justify-between mt-[5px] px-[10px] ">
                         <div>
