@@ -7,12 +7,20 @@ import TextField from '@mui/material/TextField';
 export default function Home() {
   const [selectedValue, setSelectedValue] = useState('');
   const [selected, setSelected] = useState('');
+  const [bridge, setBridge] = useState('');
+  const [bridgeChange, setBridgeChange] = useState('');
   const [inputValue, setInputValue] = useState('');
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
   const handleSelectChange = (event) => {
     setSelected(event.target.value);
+  };
+  const handleBridge = (event) => {
+    setBridge(event.target.value);
+  };
+  const handleBridgeChange = (event) => {
+    setBridgeChange(event.target.value);
   };
   const handleInputChange = (event) => {
     const numericInput = event.target.value.replace(/[^0-9]/g, '');
@@ -23,16 +31,37 @@ export default function Home() {
       <div className="w-full  flex  items-center justify-center px-[15px] ">
         <div className='  flex flex-col'>
           <div className='place-self-end sm:mr-0 lg:mr-[55px]'>
-            <button className='h-[40px] lg:w-[186px] bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)]  backdrop-blur-md px-[31px] py-[5px] sm:w-[149px] border border-solid border-[#3474D9] rounded-3xl lg:mt-[10px] sm:[mt-45px] mb-[15px]'
+            <button
+              className='h-[40px] lg:w-[186px] bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)]  backdrop-blur-md px-[31px] py-[5px] sm:w-[149px] border border-solid border-[#3474D9] rounded-3xl lg:mt-[10px] sm:[mt-45px] mb-[15px]'
             >
               Connect
             </button>
           </div>
           <div className='  shrink-0 lg:min-h-[280px] lg:min-w-[885px] sm:min-w-[300px] sm:min-h-[241px]  border border-solid border-[#3474D9] backdrop-blur-md rounded-3xl bg-gradient-to-br from-[rgba(11, 12, 15, 0.20)] via-[rgba(78, 149, 254, 0.11)] to-[rgba(251, 251, 251, 0.00)] bg-opacity-0 to-[rgba(52, 116, 217, 0.17)]'>
-            <div className=' absolute top-0 left-[56px] w-[115px] h-[40px] border border-solid border-[#3474D9] rounded-3xl inline-flex px-[31px] py-[5px] justify-center items-center gap-[10px] @apply bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)] bg-[rgba(52,116,217,0.17)] backdrop-blur-sm'>
+            <div className=' absolute top-0 lg:left-[56px] sm:left-[25px] w-[115px] h-[40px] border border-solid border-[#3474D9] rounded-3xl inline-flex px-[31px] py-[5px] justify-center items-center gap-[10px] @apply bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)] bg-[rgba(52,116,217,0.17)] backdrop-blur-sm'>
               <h2 className='font-semibold text-[20px]'>
                 From
               </h2>
+            </div>
+            <div>
+              <div className='absolute lg:right-[15px] sm:right-[10px] mt-[10px]'>
+                <Select
+                  className='lg:w-[275px] sm:w-[145px] text-white lg:h-[48px] sm:h-[35px] border border-solid border-[#3474D9] rounded-lg @apply bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)] bg-[rgba(52,116,217,0.17)] backdrop-blur-sm'
+                  value={bridge}
+                  onChange={handleBridge}
+                  displayEmpty
+                  inputProps={{ 'aria-label': 'Without label', }}
+                >
+                  <MenuItem value="">
+                    Select network
+                  </MenuItem>
+                  <MenuItem value="option1"> Etherum </MenuItem>
+                  <MenuItem value="option1"> Optimism </MenuItem>
+                  <MenuItem value="option1"> Binance </MenuItem>
+                  <MenuItem value="option1"> Arbitrum </MenuItem>
+                  <MenuItem value="option1"> Zskync </MenuItem>
+                </Select>
+              </div>
             </div>
             <div>
               <div className=' w-[750px] mt-[65px] lg:ml-[50px] sm:ml-[10px] flex flex-col pl-[15px] gap-y-[15px]'>
@@ -43,12 +72,12 @@ export default function Home() {
                   <div className='ml-[7px] mt-[2px]'>
                     <Select
                       className='w-[275px] text-white lg:h-[48px] sm:h-[35px] border border-solid border-[#3474D9] rounded-lg @apply bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)] bg-[rgba(52,116,217,0.17)] backdrop-blur-sm'
-                      value={selectedValue}
-                      onChange={handleChange}
+                      value={bridgeChange}
+                      onChange={handleBridgeChange}
                       displayEmpty
                       inputProps={{ 'aria-label': 'Without label', }}
                     >
-                      <MenuItem value="" >
+                      <MenuItem value="">
                         USDC(Etherum)
                       </MenuItem>
                       <MenuItem value="option1"> Etherum </MenuItem>
@@ -116,21 +145,39 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className=' lg:min-h-[280px] lg:min-w-[885px] sm:min-w-[300px] sm:min-h-[241px]  border border-solid border-[#3474D9] backdrop-blur-md  rounded-3xl bg-gradient-to-br from-[rgba(11, 12, 15, 0.20)] via-[rgba(78, 149, 254, 0.11)] to-[rgba(251, 251, 251, 0.00)] bg-opacity-0 to-[rgba(52, 116, 217, 0.17)]'>
-            <div className=' absolute top-0 left-[56px] w-[87px] h-[40px] border border-solid border-[#3474D9] rounded-3xl inline-flex px-[31px] py-[5px] justify-center items-center gap-[10px] @apply bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)] bg-[rgba(52,116,217,0.17)] backdrop-blur-sm'>
+          <div className='  lg:min-h-[280px] lg:min-w-[885px] sm:min-w-[300px] sm:min-h-[241px]  border border-solid border-[#3474D9] backdrop-blur-md  rounded-3xl bg-gradient-to-br from-[rgba(11, 12, 15, 0.20)] via-[rgba(78, 149, 254, 0.11)] to-[rgba(251, 251, 251, 0.00)] bg-opacity-0 to-[rgba(52, 116, 217, 0.17)]'>
+            <div className=' absolute top-0 lg:left-[56px] sm:left-[25px] w-[87px] h-[40px] border border-solid border-[#3474D9] rounded-3xl inline-flex px-[31px] py-[5px] justify-center items-center gap-[10px] @apply bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)] bg-[rgba(52,116,217,0.17)] backdrop-blur-sm'>
               <h2 className='font-semibold text-[20px]'>
                 To
               </h2>
             </div>
             <div>
-              <div className=' w-[750px] mt-[65px] lg:ml-[50px] sm:ml-[10px] flex flex-col pl-[15px] gap-y-[15px]'>
+              <div className='absolute lg:right-[15px] sm:right-[10px] mt-[10px]'>
+                <Select
+                  className='lg:w-[275px] sm:w-[145px] text-white lg:h-[48px] sm:h-[35px] border border-solid border-[#3474D9] rounded-lg @apply bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)] bg-[rgba(52,116,217,0.17)] backdrop-blur-sm'
+                  value={selectedValue}
+                  onChange={handleChange}
+                  displayEmpty
+                  inputProps={{ 'aria-label': 'Without label', }}
+                >
+                  <MenuItem value="">
+                    Select network
+                  </MenuItem>
+                  <MenuItem value="option1"> Etherum </MenuItem>
+                  <MenuItem value="option1"> Optimism </MenuItem>
+                  <MenuItem value="option1"> Binance </MenuItem>
+                  <MenuItem value="option1"> Arbitrum </MenuItem>
+                  <MenuItem value="option1"> Zskync </MenuItem>
+                </Select>
+              </div>
+              <div className=' w-[750px] mt-[65px] lg:ml-[50px] flex flex-col pl-[15px] gap-y-[15px]'>
                 <div className='flex  items-center'>
                   <div>
                     <Image src="/assets/images/eth-logo.svg" width={30} height={30} alt="eth-logo" />
                   </div>
                   <div className='ml-[7px] mt-[2px]'>
                     <Select
-                      className='w-[275px] text-white lg:h-[48px] sm:h-[35px] border border-solid border-[#3474D9] rounded-lg @apply bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)] bg-[rgba(52,116,217,0.17)] backdrop-blur-sm'
+                      className=' w-[275px]  text-white lg:h-[48px] sm:h-[45px] border border-solid border-[#3474D9] rounded-lg @apply bg-gradient-to-r from-[rgba(11,12,15,0.2)] via-[rgba(78,149,254,0.11)] to-[rgba(251,251,251,0)] bg-[rgba(52,116,217,0.17)] backdrop-blur-sm'
                       value={selected}
                       onChange={handleSelectChange}
                       displayEmpty
@@ -186,6 +233,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+          <div className='place-self-center my-[8px]'>
+            <button className='h-[38px] lg:w-[186px] bg-red-500 px-[31px] py-[5px] sm:w-[149px] border border-solid border-red-300 rounded-xl lg:mt-[5px] sm:[mt-45px] mb-[10px]'>
+              Bridge
+            </button>
           </div>
         </div>
       </div>
